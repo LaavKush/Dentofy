@@ -1,0 +1,296 @@
+:root {
+    --primary-orange: #e16b1a;
+    --dark-bar: #332721;
+    --top-black: #1a1512;
+    --text-gray: #f8f9fa;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fcfcfc;
+}
+
+/* Top Notification Bar */
+.top-bar {
+    background-color: var(--top-black);
+    color: #d8d8d8;
+    font-size: 12px;
+    padding: 6px 0;
+}
+.top-bar a {
+    color: #d8d8d8;
+    text-decoration: none;
+}
+.top-bar a:hover {
+    color: #fff;
+}
+
+/* Main Header Orange Box */
+.main-header {
+    background: linear-gradient(180deg, #f07b26 0%, #d65c0f 100%);
+    padding: 15px 0;
+    color: white;
+}
+.brand-icon {
+    font-size: 32px; 
+    font-weight: bold; 
+    font-style: italic; 
+    line-height: 1; 
+    color:#fff;
+}
+.brand-title {
+    font-size: 28px; 
+    font-weight: bold; 
+    letter-spacing: -0.5px; 
+    line-height: 1; 
+    display:block;
+}
+.brand-subtitle {
+    font-size: 16px; 
+    font-weight: 300; 
+    display:block; 
+    margin-top:-4px; 
+    text-align:right; 
+    letter-spacing: 0.5px;
+}
+.logo-legal {
+    font-size: 11px;
+    color: #f7dcd0;
+    margin-top: -3px;
+    display: block;
+}
+.btn-call {
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 30px;
+    color: white;
+    padding: 8px 24px;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-call:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+.btn-appointment {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    color: white;
+    padding: 8px 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
+}
+.btn-appointment:hover {
+    background-color: white;
+    color: var(--primary-orange);
+}
+
+/* Navigation Bar Base Layout */
+.navbar-custom {
+    background-color: var(--dark-bar);
+    padding: 0;
+}
+.navbar-custom .nav-link {
+    color: #d5cbc4 !important;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 15px 20px !important;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid transparent;
+}
+.navbar-custom .nav-link:hover, 
+.navbar-custom .active-link {
+    color: #ffffff !important;
+    border-bottom: 3px solid var(--primary-orange);
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* Orange Dropdown Box */
+.navbar-custom .dropdown-menu-custom {
+    background-color: var(--primary-orange) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: 280px;
+    position: absolute; 
+}
+.dropdown-menu-custom li {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.dropdown-menu-custom .dropdown-item {
+    color: white !important;
+    font-size: 13px;
+    padding: 10px 20px;
+    font-weight: 500;
+    white-space: normal;
+}
+.dropdown-menu-custom .dropdown-item:before {
+    content: "• ";
+    color: rgba(255,255,255,0.7);
+    margin-right: 5px;
+}
+.dropdown-menu-custom .dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.15) !important;
+    color: #fff !important;
+}
+
+/* Slider Overhaul */
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.carousel-item {
+    height: 520px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* यहाँ अब आपके लोकल इमेजेस फोल्डर का पाथ है */
+.slide-1 {
+    background-image: url('../images/image_8df93a.jpg');
+}
+.slide-2 {
+    background-image: url('../images/image_8d8fa3.jpg');
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+}
+.carousel-caption-custom {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    z-index: 10;
+    color: #333;
+    max-width: 500px;
+    text-align: left;
+}
+.slide-subtitle {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.slide-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #444444;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+.slide-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+.highlight-phone {
+    color: var(--primary-orange); 
+    font-weight: bold;
+}
+
+/* Inside Buttons */
+.btn-download {
+    background-color: var(--primary-orange);
+    color: white;
+    border-radius: 30px;
+    padding: 12px 35px;
+    font-weight: bold;
+    border: none;
+    text-transform: capitalize;
+}
+.btn-download:hover {
+    background-color: #c75a13;
+    color: white;
+}
+.btn-readmore {
+    background-color: #dfba9d;
+    color: white;
+    border-radius: 30px;
+    padding: 12px 35px;
+    font-weight: bold;
+    border: none;
+    text-transform: uppercase;
+}
+.btn-readmore:hover {
+    background-color: #cfaa8d;
+    color: white;
+}
+
+/* Indicators Styling */
+.carousel-indicators-custom {
+    position: absolute;
+    bottom: 40px;
+    left: 10%;
+    margin: 0;
+    justify-content: flex-start;
+    z-index: 15;
+}
+.carousel-indicators-custom [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #bbb;
+    border: none;
+    margin-right: 8px;
+    opacity: 1;
+}
+.carousel-indicators-custom .active {
+    background-color: #666;
+}
+
+/* Responsive Overrides */
+@media (max-width: 991.98px) {
+    .navbar-custom .nav-link {
+        padding: 10px 20px !important;
+        border-bottom: none;
+    }
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .active-link {
+        border-bottom: none;
+        background-color: rgba(255,255,255,0.05);
+    }
+    .navbar-custom .dropdown-menu-custom {
+        position: static;
+        width: 100%;
+    }
+    .carousel-item {
+        height: 450px;
+    }
+    .slide-title {
+        font-size: 32px;
+    }
+    .carousel-caption-custom {
+        top: 15%;
+        left: 5%;
+        right: 5%;
+        max-width: 100%;
+    }
+    .carousel-indicators-custom {
+        left: 5%;
+        bottom: 20px;
+    }
+}
