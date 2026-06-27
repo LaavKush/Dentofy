@@ -294,3 +294,35 @@ window.addEventListener('scroll', ()=>{
   document.getElementById('scrollTopBtn').style.opacity =
     window.scrollY > 80 ? '1' : '0.5';
 });
+
+// phone validation functions
+
+function validatePhone() {
+    const phone = document.getElementById("fphone");
+    const error = document.getElementById("phoneError");
+    const icon = document.querySelector("#phoneWrap .err-icon");
+
+    if (phone.value.trim() === "") {
+        phone.classList.add("error-border");
+        error.textContent = "This field is required.";
+        icon.style.display = "flex";
+        return false;
+    }
+
+    phone.classList.remove("error-border");
+    error.textContent = "";
+    icon.style.display = "none";
+    return true;
+}
+
+function clearPhoneError() {
+    const phone = document.getElementById("fphone");
+    const error = document.getElementById("phoneError");
+    const icon = document.querySelector("#phoneWrap .err-icon");
+
+    if (phone.value.trim() !== "") {
+        phone.classList.remove("error-border");
+        error.textContent = "";
+        icon.style.display = "none";
+    }
+}

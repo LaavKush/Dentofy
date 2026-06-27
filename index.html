@@ -17,13 +17,13 @@
   <div class="container-fluid px-3 px-md-4">
     <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
       <div class="d-flex align-items-center gap-1 flex-wrap">
-        <i class="fas fa-location-dot" style="color:#e87020"></i>
+        <i class="fas fa-location-dot" style="color:#3A8AB5"></i>
         <span>1539 11th Avenue, Prince George, BC, V2L 3S6</span>
         <span class="sep d-none d-md-inline">|</span>
-        <i class="fas fa-ambulance d-none d-md-inline" style="color:#e87020"></i>
+        <i class="fas fa-ambulance d-none d-md-inline" style="color:#3A8AB5"></i>
         <span class="d-none d-md-inline">Emergency Dental Care in Prince George</span>
         <span class="sep d-none d-md-inline">|</span>
-        <i class="fas fa-envelope d-none d-md-inline" style="color:#e87020"></i>
+        <i class="fas fa-envelope d-none d-md-inline" style="color:#3A8AB5"></i>
         <span class="d-none d-md-inline">smiles.accentdental@gmail.com</span>
       </div>
       <div class="d-flex gap-3">
@@ -343,17 +343,41 @@
       </div>
  
       <!-- Phone + Email -->
-      <div style="display:flex; gap:14px; flex-wrap:wrap;">
-        <div class="field-wrap" style="flex:1;min-width:200px;" id="phoneWrap">
-          <i class="fas fa-phone field-icon"></i>
-          <input type="tel" id="fphone" class="appt-input error-border" placeholder="Phone" autocomplete="off"/>
-          <div class="err-icon">!</div>
-        </div>
-        <div class="field-wrap" style="flex:1;min-width:200px;">
-          <i class="fas fa-envelope field-icon"></i>
-          <input type="email" id="femail" class="appt-input" placeholder="E-mail" autocomplete="off"/>
-        </div>
-      </div>
+<div style="display:flex; gap:14px; flex-wrap:wrap; margin-bottom:24px;">
+
+  <!-- Phone -->
+  <div class="field-wrap phone-wrap" id="phoneWrap">
+    <i class="fas fa-phone field-icon"></i>
+
+    <input
+        type="tel"
+        id="fphone"
+        class="appt-input"
+        placeholder="Phone"
+        autocomplete="off"
+        onblur="validatePhone()"
+        oninput="clearPhoneError()"
+    >
+
+    <div class="err-icon">!</div>
+    <small id="phoneError" class="error-text"></small>
+</div>
+  <!-- Email -->
+  <div class="field-wrap" style="flex:1; min-width:200px;">
+    <i class="fas fa-envelope field-icon"></i>
+
+    <input
+      type="email"
+      id="femail"
+      class="appt-input"
+      placeholder="E-mail"
+      autocomplete="off"
+    />
+  </div>
+
+</div>
+
+      
  
       <!-- Date + Time -->
       <div style="display:flex; gap:14px; flex-wrap:wrap;">
