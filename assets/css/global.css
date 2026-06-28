@@ -1,0 +1,795 @@
+/* ===========================
+   PAGE LOADER
+=========================== */
+
+#page-loader{
+    position: fixed;
+    inset: 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    transition: opacity .5s ease, visibility .5s ease;
+}
+
+#page-loader img{
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+#page-loader.hide{
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ══════════════════════════════════════════
+   GLOBAL THEME COLOR SCHEMA (NAVY & SKY BLUE)
+   Add this to your global.css root file
+══════════════════════════════════════════ */
+
+:root {
+  /* ── 1. PRIMARY SYSTEM BRANDING ── */
+  --brand-navy-dark: #0a2540;   /* Deepest Navy (Headings, Active items) */
+  --brand-navy-main: #003366;   /* Standard Brand Corporate Blue (Top Bars, Primary CTAs) */
+  --brand-steel-blue: #1c4b7a;  /* Mid-Tone Steel Blue (Hover transitions) */
+  --brand-sky-blue: #b9d6f2;    /* Crisp Accent Sky Blue (Icons, Borders, Highlights) */
+  --brand-ice-blue: #eaf1f7;    /* Ultra-light Background Fill */
+
+  /* ── 2. NEUTRAL SYSTEM TONES ── */
+  --text-dark: #1a1a1a;
+  --text-muted: #4a5568;
+  --bg-light: #ffffff;
+  --border-light: #e2eaf0;
+
+  /* ── 3. OVERRIDING BOOTSTRAP UTILITY VARIABLES ── */
+  /* This forces Bootstrap components (like buttons, alerts, badges) to adapt automatically */
+  --bs-primary: var(--brand-navy-main);
+  --bs-primary-rgb: 0, 51, 102;
+  --bs-secondary: var(--brand-sky-blue);
+  --bs-secondary-rgb: 185, 214, 242;
+  --bs-dark: var(--brand-navy-dark);
+  --bs-dark-rgb: 10, 37, 64;
+  --bs-light: var(--brand-ice-blue);
+  --bs-light-rgb: 234, 241, 247;
+}
+
+/* ══════════════════════════════════════════
+   YOUR REUSABLE DESIGN COMPONENT UTILITIES
+══════════════════════════════════════════ */
+
+/* Dynamic Card Shifting System */
+.card-dark-orange   { background-color: var(--brand-navy-dark) !important; color: #ffffff; }
+.card-medium-orange { background-color: var(--brand-navy-main) !important; color: #ffffff; }
+.card-bright-orange { background-color: var(--brand-steel-blue) !important; color: #ffffff; }
+.card-light-orange  { background-color: var(--brand-sky-blue) !important; color: var(--brand-navy-dark); }
+
+/* Global Interactive Elements */
+.btn-brand-primary {
+  background-color: var(--brand-navy-main);
+  border-color: var(--brand-navy-main);
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+.btn-brand-primary:hover {
+  background-color: var(--brand-navy-dark);
+  border-color: var(--brand-navy-dark);
+  color: #ffffff;
+}
+
+.btn-brand-accent {
+  background-color: transparent;
+  border: 1px solid var(--brand-sky-blue);
+  color: var(--brand-navy-main);
+  transition: all 0.2s ease-in-out;
+}
+.btn-brand-accent:hover {
+  background-color: var(--brand-sky-blue);
+  color: var(--brand-navy-dark);
+}
+
+/* Calendar Element Opacities */
+.cal-day.other-month { color: rgba(10, 37, 64, 0.45); }
+.cal-day.disabled    { color: rgba(10, 37, 64, 0.25); pointer-events: none; }
+
+/* Links Normalization */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI',Arial,sans-serif;
+    color:#1a1a1a;
+    background:#fff;
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+    transition:.25s ease;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
+ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+
+/* =========================================================
+   PAGE LOADER
+========================================================= */
+
+#page-loader{
+    position:fixed;
+    inset:0;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999999;
+    transition:.45s;
+}
+
+#page-loader img{
+    width:90px;
+}
+
+#page-loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.top-bar{
+    background:#003366;
+    color:#d4e5f7;
+    font-size:12px;
+    padding:6px 0;
+}
+
+.top-bar a{
+    color:#d4e5f7;
+}
+
+.top-bar a:hover{
+    color:#fff;
+}
+
+.top-bar .sep{
+    margin:0 14px;
+    opacity:.4;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.main-header{
+    background:linear-gradient(135deg,#0a2540 0%,#003366 55%,#1c4b7a 100%);
+    padding:14px 0;
+}
+
+.logo-wrap{
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+}
+
+.logo-icon{
+    font-size:38px;
+    color:#fff;
+    opacity:.9;
+}
+
+.logo-text{
+    color:#fff;
+    font-size:36px;
+    font-weight:700;
+    line-height:1;
+    letter-spacing:-1px;
+}
+
+.logo-text span{
+    font-weight:300;
+}
+
+.logo-subtitle{
+    color:rgba(255,255,255,.75);
+    font-size:11px;
+    margin-top:3px;
+}
+
+
+/* =========================================================
+   HEADER BUTTONS
+========================================================= */
+
+.btn-phone,
+.btn-appt{
+
+    background:transparent;
+    color:#fff;
+    border:2px solid #fff;
+
+    padding:9px 22px;
+
+    border-radius:30px;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.btn-phone i{
+    margin-right:7px;
+}
+
+.btn-phone:hover,
+.btn-appt:hover{
+
+    background:#fff;
+    color:#003366;
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.main-nav{
+
+    background:#1f1f1f;
+
+    position:sticky;
+    top:0;
+    z-index:999;
+
+}
+
+.main-nav .navbar-nav .nav-link{
+
+    color:#dddddd!important;
+
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.5px;
+
+    text-transform:uppercase;
+
+    padding:17px 16px!important;
+
+    position:relative;
+
+}
+
+.main-nav .navbar-nav .nav-link:hover,
+.main-nav .navbar-nav .nav-link.active{
+
+    color:#fff!important;
+
+}
+
+.main-nav .navbar-nav .nav-item.active>.nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:16px;
+    right:16px;
+    bottom:0;
+
+    height:3px;
+
+    background:#1071cb;
+
+    border-radius:4px;
+
+}
+
+
+/* =========================================================
+   NAVBAR DROPDOWN
+========================================================= */
+
+@media(min-width:992px){
+
+.main-nav .nav-item.dropdown:hover>.dropdown-menu{
+
+    display:block;
+    opacity:1;
+    visibility:visible;
+    margin-top:0;
+
+}
+
+}
+
+.main-nav .dropdown-menu{
+
+    background:#02284f;
+
+    border:none;
+
+    border-radius:0;
+
+    min-width:280px;
+
+    padding:10px 0;
+
+}
+
+.main-nav .dropdown-item{
+
+    color:#fff;
+
+    padding:9px 24px;
+
+    font-size:13px;
+
+}
+
+.main-nav .dropdown-item:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.main-nav .dropdown-item::before{
+
+    content:"• ";
+
+    margin-right:4px;
+
+}
+
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+.navbar-toggler{
+
+    border-color:rgba(255,255,255,.45);
+
+}
+
+.navbar-toggler-icon{
+
+    filter:invert(1);
+
+}
+
+
+/* =========================================================
+   SCROLL BUTTON
+========================================================= */
+
+#scrollTopBtn{
+
+    position:fixed;
+
+    right:28px;
+    bottom:28px;
+
+    width:45px;
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:#003366;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+
+    cursor:pointer;
+
+    z-index:9999;
+
+    transition:.3s;
+
+}
+
+#scrollTopBtn:hover{
+
+    background:#003366;
+
+    color:#fff;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer{
+
+    background:#042E58;
+
+    color:#fff;
+
+    font-size:14px;
+
+}
+
+.footer-container{
+
+    max-width:1200px;
+    margin:auto;
+
+}
+
+.footer-row{
+
+    display:flex;
+    flex-wrap:wrap;
+
+}
+
+.footer-col{
+
+    padding:50px 30px;
+
+}
+
+.tweets-col{
+
+    flex:2;
+    min-width:320px;
+
+}
+
+.hours-col{
+
+    flex:1.5;
+    min-width:260px;
+
+}
+
+.contacts-col{
+
+    flex:1.5;
+    min-width:280px;
+
+    background:#00022f;
+
+}
+
+
+/* =========================================================
+   FOOTER HEADINGS
+========================================================= */
+
+.footer-title{
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    margin-bottom:30px;
+
+    font-size:18px;
+    font-weight:700;
+
+}
+
+
+/* =========================================================
+   FOOTER TWEETS
+========================================================= */
+
+.tweet-item{
+
+    margin-bottom:22px;
+
+}
+
+.tweet-link-header{
+
+    color:#67b0fe;
+
+    font-weight:600;
+
+}
+
+.tweet-link-header:hover{
+
+    text-decoration:underline;
+
+}
+
+.tweet-item p{
+
+    color:#fff;
+
+}
+
+.read-more{
+
+    color:#67b0fe;
+
+}
+
+
+/* =========================================================
+   HOURS TABLE
+========================================================= */
+
+.hours-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.hours-table td{
+
+    padding:8px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.hours-table td:last-child{
+
+    text-align:right;
+
+}
+
+
+/* =========================================================
+   CONTACTS
+========================================================= */
+
+.contact-links li{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-bottom:18px;
+
+}
+
+.contact-links i{
+
+    margin-top:3px;
+
+}
+
+.contact-hyperlink{
+
+    color:#fff;
+
+}
+
+.contact-hyperlink.highlighting{
+
+    color:#c9e29c;
+
+}
+
+.contact-hyperlink:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
+
+.footer-socials{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.social-btn{
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:#003366;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    color:#fff;
+
+    transition:.3s;
+
+}
+
+.social-btn:hover{
+
+    background:#1071cb;
+
+    transform:translateY(-3px);
+
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+    padding:20px 30px;
+
+}
+
+.footer-bottom-container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    font-size:13px;
+
+}
+
+.footer-bottom a{
+
+    font-weight:600;
+
+}
+
+.designer-text{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:768px){
+
+.footer-row{
+
+    flex-direction:column;
+
+}
+
+.contacts-col{
+
+    background:#042E58;
+
+}
+
+.footer-bottom-container{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.logo-text{
+
+    font-size:28px;
+
+}
+
+.top-bar{
+
+    font-size:11px;
+
+}
+
+.btn-phone,
+.btn-appt{
+
+    width:100%;
+    text-align:center;
+
+}
+
+}
+
+#scrollTopBtn{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: var(--brand-navy-main);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,51,102,.35);
+    transition: all .3s ease;
+    z-index: 999;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+#scrollTopBtn.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scrollTopBtn:hover{
+    background: var(--brand-navy-dark);
+    transform: translateY(-4px);
+}

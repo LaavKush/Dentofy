@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accent Dental – Dr. A.P.S. Sachdeva INC.</title>
+
+    <!-- SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/logo.svg">
+
+    <!-- Optional fallback for older browsers -->
+    <link rel="alternate icon" href="../assets/images/logo.ico">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/patients.css">
+
+    <!-- <script src="../script.js" defer></script> -->
+    <script src="../global.js" defer></script>
+    <script src="../Logics/patients.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Page Loader -->
+    <div id="page-loader">
+        <img src="../assets/images/loading.gif" alt="Loading">
+    </div>
+
+    <!-- ══════════ TOP BAR ══════════ -->
+    <div class="top-bar">
+        <div class="container-fluid px-3 px-md-4">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <div class="d-flex align-items-center gap-1 flex-wrap">
+                    <i class="fas fa-location-dot" style="color:#3A8AB5"></i>
+                    <a href="https://www.google.com/maps/place/Accent+Dental/@53.9118789,-122.755101,17z/data=!3m1!4b1!4m6!3m5!1s0x538898e206c9b55b:0x56f8fab7a08bc630!8m2!3d53.9118789!4d-122.755101!16s%2Fg%2F11b5wqklcn?entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank" rel="noopener noreferrer">
+                        <span>1539 11th Avenue, Prince George, BC, V2L 3S6</span>
+                    </a>
+                    <span class="sep d-none d-md-inline">|</span>
+                    <i class="fas fa-ambulance d-none d-md-inline" style="color:#3A8AB5"></i>
+                    <span class="d-none d-md-inline">Emergency Dental Care in Prince George</span>
+                    <span class="sep d-none d-md-inline">|</span>
+                    <i class="fas fa-envelope d-none d-md-inline" style="color:#3A8AB5"></i>
+                    <span class="d-none d-md-inline">smiles.accentdental@gmail.com</span>
+                </div>
+                <div class="d-flex gap-3">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════ MAIN HEADER ══════════ -->
+    <header class="main-header">
+        <div class="container-fluid px-3 px-md-4">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                <!-- Logo -->
+                <div class="logo-wrap">
+                    <div class="logo-icon"><i class="fas fa-tooth"></i></div>
+                    <div>
+                        <div class="logo-text"><span>Accent</span><br>dental</div>
+                        <div class="logo-subtitle">Dr. A.P.S. Sachdeva INC.</div>
+                    </div>
+                </div>
+                <!-- CTA buttons -->
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                    <a href="tel:2505634939" class="btn btn-phone"><i class="fas fa-phone"></i> 250.563.4939</a>
+                    <a href="../Pages/contact.html" class="btn btn-appt"><span
+                            style="font-size:16px;margin-right:6px">+</span> MAKE AN
+                        APPOINTMENT</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ══════════ NAVBAR ══════════ -->
+    <nav class="main-nav navbar navbar-expand-lg">
+        <div class="container-fluid px-3 px-md-4">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu"
+                aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainMenu">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="../index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ABOUT US</a>
+                    </li>
+                    <!-- Dental Services dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            DENTAL SERVICES
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Cleaning & Prevention</a></li>
+                            <li><a class="dropdown-item" href="#">Restorative Dentistry</a></li>
+                            <li><a class="dropdown-item" href="#">Cosmetic Dentistry</a></li>
+                            <li><a class="dropdown-item" href="#">Paediatric Dentistry</a></li>
+                            <li><a class="dropdown-item" href="#">Periodontal Treatment</a></li>
+                            <li><a class="dropdown-item" href="#">Oral Surgery</a></li>
+                            <li><a class="dropdown-item" href="#">Dental Emergencies</a></li>
+                        </ul>
+                    </li>
+                    <!-- Featured Services dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            FEATURED SERVICES
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">3DNG PMMA NIGHTGUARD</a></li>
+                            <li><a class="dropdown-item" href="#">Teeth Whitening</a></li>
+                            <li><a class="dropdown-item" href="#">Dental Diamonds</a></li>
+                            <li><a class="dropdown-item" href="#">Dental Implants</a></li>
+                            <li><a class="dropdown-item" href="#">Laser Dentistry</a></li>
+                            <li><a class="dropdown-item" href="#">Veneers</a></li>
+                            <li><a class="dropdown-item" href="#">Clear Braces</a></li>
+                            <li><a class="dropdown-item" href="#">BOTOX® Cosmetic Dentistry</a></li>
+                            <li><a class="dropdown-item" href="#">TMD, Headaches, and Chronic Head &amp; Neck Pain</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#">3D Imaging</a></li>
+                            <li><a class="dropdown-item" href="#">Anesthetic Reversal</a></li>
+                            <li><a class="dropdown-item" href="#">Diagnodent</a></li>
+                            <li><a class="dropdown-item" href="#">Invisalign</a></li>
+                            <li><a class="dropdown-item" href="#">Digital X-rays</a></li>
+                            <li><a class="dropdown-item" href="#">Sealants</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Pages/patients.html">OUR PATIENTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Pages/blog.html">BLOG</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Pages/contact.html">CONTACT US</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Inner Page Main Content Wrapper -->
+    <div class="inner-page-wrapper">
+
+        <!-- ── HERO BANNER SECTION  ── -->
+        <section class="inner-hero-banner">
+            <div class="container">
+                <h1 class="banner-title">CONTACT US</h1>
+                <p class="banner-subtitle">We would love to hear from you! Please feel free to reach out to us with any
+                    questions or concerns you may have.</p>
+            </div>
+        </section>
+
+
+        <!-- ── BREADCRUMB BAR ── -->
+        <div class="breadcrumb-bar">
+            <div class="container">
+                <ul class="breadcrumb-list">
+                    <li><a href="/"><i class="bi bi-house-fill"></i></a></li>
+                    <li class="separator"><i class="bi bi-chevron-right"></i></li>
+                    <li class="active">Contact us</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ── MAIN BODY CONTENT  ── -->
+        <main class="page-content-container">
+            <div class="container-fluid p-0">
+
+                <section id="our-patients-section">
+                    <div class="patients-inner">
+                        <h2 class="patients-heading">Our Patients</h2>
+
+                        <div class="patients-tab-nav">
+                            <button class="tab-arrow" onclick="shiftTab(-1)">&#8249;</button>
+                            <div class="tab-list">
+                                <button class="tab-btn active" onclick="switchTab(0,this)">New Patients
+                                    Welcomed!</button>
+                                <button class="tab-btn" onclick="switchTab(1,this)">Patient Education</button>
+                                <button class="tab-btn" onclick="switchTab(2,this)">Financial Info</button>
+                            </div>
+                            <button class="tab-arrow" onclick="shiftTab(1)">&#8250;</button>
+                        </div>
+
+                        <div class="patients-tab-content">
+                            <div class="tab-pane active" id="pane-0">
+                                <div class="tab-left">
+                                    <h3>Accent Dental is welcoming new patients to our practice.</h3>
+                                    <p>Referrals are greatly appreciated! Contact us at
+                                        <a href="tel:2505634939">250.563.4939</a> to make an appointment.
+                                    </p>
+                                    <div class="pdf-row">
+                                        <div class="pdf-icon">
+                                            <svg viewBox="0 0 48 56" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="48" height="56" rx="4" fill="#e8e8e8" />
+                                                <path d="M30 0 L48 18 L30 18 Z" fill="#bbb" />
+                                                <rect x="0" y="28" width="48" height="18" rx="2" fill="#cc2200" />
+                                                <text x="24" y="41" text-anchor="middle" font-family="Arial"
+                                                    font-size="10" font-weight="bold" fill="#fff">PDF</text>
+                                            </svg>
+                                        </div>
+                                        <div class="pdf-info">
+                                            <span class="pdf-link">Please print and fill out our</span>
+                                            <a href="AccentDental_PatientInformationForm.pdf"
+                                                class="pdf-filename">AccentDental_PatientInformationForm.pdf</a>
+                                            <span class="pdf-size"> (957)</span>
+                                            <div class="pdf-meta">Author: jesse<br>Date: 2015-07-20 08:54:46<br>Patient
+                                                Information Form</div>
+                                            <button class="btn-send-file">Send this file</button>
+                                        </div>
+                                    </div>
+                                    <p class="pdf-note">(PDF file) and bring it into the office for your first visit.
+                                    </p>
+                                </div>
+                                <div class="tab-right">
+                                    <img src="../assets/images/clinic.png" alt="Accent Dental clinic front">
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="pane-1">
+                                <div class="tab-left info-pane-content">
+
+                                    <h3>Patient Education</h3>
+
+                                    <p>
+                                        Patient education is the process by which health professionals and others impart
+                                        information to patients and their caregivers that helps improve their health,
+                                        oral hygiene habits, and overall well-being.
+                                    </p>
+
+                                    <p>
+                                        One of the most important purposes of patient education is to empower patients
+                                        to
+                                        make informed decisions about their dental care. Understanding preventive
+                                        practices, treatment options, and proper oral hygiene techniques can help you
+                                        maintain a healthy smile for life.
+                                    </p>
+
+                                    <p>
+                                        To know more about Patient Education,
+                                        <a href="https://bcdental.org/patient-resources/" target="_blank"
+                                            rel="noopener noreferrer" class="patient-link">
+                                            Click Here
+                                        </a>
+                                    </p>
+
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="pane-2">
+    <div class="tab-left info-pane-content">
+
+        <h3>Financial Information</h3>
+
+        <p>
+            The cost of your treatment may vary depending on your individual needs and
+            treatment plan. During your visit, we'll discuss the cost of your treatment,
+            available payment options, and help you choose the option that best fits your
+            needs and budget.
+        </p>
+
+        <h4 class="info-subtitle">Insurance</h4>
+
+        <div class="row align-items-start">
+
+            <div class="col-lg-8">
+
+                <p>
+                    Understanding dental insurance can sometimes be confusing, but our team
+                    is here to help you make the most of your benefits.
+                </p>
+
+                <p>
+                    While we cannot determine your exact insurance coverage, we are happy to
+                    assist by explaining your treatment plan, helping you understand your
+                    benefits, and providing the information you need to discuss coverage with
+                    your insurance provider.
+                </p>
+
+                <p>
+                    Dental benefit plans are agreements between your employer and insurance
+                    company. Coverage varies from plan to plan, and patients are ultimately
+                    responsible for understanding their own benefits and limitations.
+                </p>
+
+                <p>
+                    If you have any questions, please
+                    <a href="contact.html" class="financial-link">
+                        contact us through our online form
+                    </a>
+                    or call us at
+                    <strong>(250) 563-4939</strong>.
+                    Our team will be happy to assist you.
+                </p>
+
+            </div>
+
+            <div class="col-lg-4 text-center">
+                <img src="../assets/images/insurance.jpg"
+                     class="img-fluid financial-img"
+                     alt="Dental Insurance">
+            </div>
+
+        </div>
+
+        <h4 class="info-subtitle mt-4">
+            Affordable Payment Plans
+        </h4>
+
+        <p>
+            Your smile is yours forever, and we want to make receiving quality dental care
+            as convenient as possible. We accept most major credit cards and insurance
+            plans, and also offer affordable third-party financing through
+            <a href="https://app.healthsmartfinancial.com/ApplyNow.aspx?uniqueID=Dy9HqwJYKnJEX/MQGtMEHQ==&Name=pqSHlAPxUyYUZvKDmtvM9Q=="
+               target="_blank"
+               class="financial-link">
+                HealthSmart Financial
+            </a>.
+            Click below to learn more and apply online with no commitment or obligation.
+        </p>
+
+        <div class="text-center mt-4">
+            <a href="https://app.healthsmartfinancial.com/ApplyNow.aspx?uniqueID=Dy9HqwJYKnJEX/MQGtMEHQ==&Name=pqSHlAPxUyYUZvKDmtvM9Q=="
+               target="_blank">
+                <img src="../assets/images/healthsmart.png"
+                     alt="HealthSmart Financial"
+                     class="healthsmart-banner">
+            </a>
+        </div>
+
+    </div>
+</div>
+                        </div>
+                    </div>
+                </section>
+        </main>
+
+        <!-- Scroll to top -->
+        <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+
+
+        <!-- ══════════ FOOTER STRIP ══════════ -->
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-row">
+
+                    <!-- Column 1: Latest Tweets -->
+                    <div class="footer-col tweets-col">
+                        <h3 class="footer-title"><i class="bi bi-twitter-x"></i> LATEST TWEETS</h3>
+                        <div class="tweet-item">
+                            <a href="#" class="tweet-link-header">BCDA-COVID-19-Patient-Information</a>
+                            <p>British Columbians can reach service representatives seven days a week, from 7:30am to
+                                8pm, by calling 1-888-COVID19. <a href="#" class="read-more">Read more...</a></p>
+                        </div>
+                        <div class="tweet-item">
+                            <a href="#" class="tweet-link-header">How does Invisalign® effectively move teeth?</a>
+                            <p>Invisalign® is the easiest way for you to straighten your teeth without metal brackets
+                                and wires. We have many experienced Invisalign® certified dentists to help get your
+                                teeth straighter and the smile you have always wanted</p>
+                        </div>
+                        <div class="tweet-item">
+                            <a href="#" class="tweet-link-header">3DNG PMMA NIGHTGUARD</a>
+                            <p>Our new fully-digital PMMA night guard is crystal clear, thin and lightweight, and
+                                biocompatible. This computer designed appliance is precision milled using 5-axis
+                                machining technology.</p>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Opening Hours -->
+                    <div class="footer-col hours-col">
+                        <h3 class="footer-title"><i class="bi bi-clock"></i> OPENING HOURS</h3>
+                        <table class="hours-table">
+                            <tr>
+                                <td>Monday</td>
+                                <td>8:00 am - 8:00 pm</td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>8:00 am - 5:30 pm</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>8:00 am - 5:30 pm</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>8:00 am - 5:30 pm</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>8:00 am - 5:30 pm</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>One Saturday a month</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>Closed</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- Column 3: Contacts (Dark Section) -->
+                    <div class="footer-col contacts-col">
+                        <h3 class="footer-title"><i class="bi bi-geo-alt-fill"></i> CONTACTS</h3>
+                        <ul class="contact-links">
+                            <li>
+                                <i class="bi bi-telephone-fill"></i>
+                                <a href="tel:2505634939" class="contact-hyperlink">250.563.4939</a>
+                            </li>
+                            <li>
+                                <i class="bi bi-send-fill"></i>
+                                <a href="https://www.google.com/maps/search/?api=1&query=1539+11th+Avenue,+Prince+George,+BC,+V2L+3S6"
+                                    target="_blank" class="contact-hyperlink highlighting">1539 11th Avenue, Prince
+                                    George, BC, V2L 3S6</a>
+                            </li>
+                            <li>
+                                <i class="bi bi-envelope-fill"></i>
+                                <a href="mailto:smiles.accentdental@gmail.com"
+                                    class="contact-hyperlink highlighting">smiles.accentdental@gmail.com</a>
+                            </li>
+                        </ul>
+                        <div class="footer-socials">
+                            <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-container">
+                    <div class="copyright-text">
+                        Copyright © 2019 <a href="#">AccentDental</a> (formerly Dr. Lonny Legault Inc.)
+                    </div>
+                    <div class="designer-text">
+                        <i class="bi bi-globe"></i> Website Designed by <a href="#">Laavanya</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>

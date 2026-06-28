@@ -106,10 +106,17 @@ function toggleTimePicker(e){
   }
 }
  
-function renderTime(){
-  document.getElementById('tHour').textContent = pad(tHour);
-  document.getElementById('tMin').textContent  = pad(tMin);
-  document.getElementById('ftime').value = `${pad(tHour)}:${pad(tMin)} ${tAMPM}`;
+function renderTime() {
+
+    const hour = document.getElementById("tHour");
+    const min = document.getElementById("tMin");
+    const time = document.getElementById("ftime");
+
+    if (!hour || !min || !time) return;
+
+    hour.textContent = pad(tHour);
+    min.textContent = pad(tMin);
+    time.value = `${pad(tHour)}:${pad(tMin)} ${tAMPM}`;
 }
  
 function changeHour(dir){
@@ -155,24 +162,28 @@ document.addEventListener('click', e=>{
 /* ═══════════════════════════════════════════════════
    PHONE FIELD – error state logic
 ═══════════════════════════════════════════════════ */
-const phoneInput = document.getElementById('fphone');
-const phoneWrap  = document.getElementById('phoneWrap');
- 
-// Show error by default (matches screenshot)
-phoneWrap.classList.add('has-error');
- 
-phoneInput.addEventListener('input', ()=>{
-  const val = phoneInput.value.trim();
-  // simple validation: 10+ digits
-  const digits = val.replace(/\D/g,'');
-  if(digits.length >= 10){
-    phoneWrap.classList.remove('has-error');
-    phoneInput.classList.remove('error-border');
-  } else {
-    phoneWrap.classList.add('has-error');
-    phoneInput.classList.add('error-border');
-  }
-});
+const phoneInput = document.getElementById("fphone");
+const phoneWrap = document.getElementById("phoneWrap");
+
+if (phoneInput && phoneWrap) {
+
+    phoneWrap.classList.add("has-error");
+
+    phoneInput.addEventListener("input", () => {
+
+        const digits = phoneInput.value.replace(/\D/g, "");
+
+        if (digits.length >= 10) {
+            phoneWrap.classList.remove("has-error");
+            phoneInput.classList.remove("error-border");
+        } else {
+            phoneWrap.classList.add("has-error");
+            phoneInput.classList.add("error-border");
+        }
+
+    });
+
+}
  
 /* ═══════════════════════════════════════════════════
    FORM VALIDATION + SUBMIT
@@ -224,7 +235,9 @@ window.addEventListener('scroll', ()=>{
 });
  
 // Init time display
-renderTime();
+if (document.getElementById("ftime")) {
+    renderTime();
+}
 
 /* ══════════════════════════════════════════
    TAB SLIDER
@@ -236,15 +249,27 @@ const totalTabs   = document.querySelectorAll('.tab-btn').length;
 let activeTab     = 0;
  
 function updateArrows(){
-  document.getElementById('tabPrev').disabled = tabOffset === 0;
-  document.getElementById('tabNext').disabled = tabOffset >= totalTabs - VISIBLE;
+
+    const prev = document.getElementById("tabPrev");
+    const next = document.getElementById("tabNext");
+
+    if (!prev || !next) return;
+
+    prev.disabled = (tabOffset === 0);
+    next.disabled = (tabOffset >= totalTabs - VISIBLE);
 }
- 
 function slideTab(dir){
-  tabOffset = Math.max(0, Math.min(tabOffset + dir, totalTabs - VISIBLE));
-  document.getElementById('tabTrack').style.transform =
-    `translateX(-${tabOffset * TAB_WIDTH}px)`;
-  updateArrows();
+
+    const track = document.getElementById("tabTrack");
+    if (!track) return;
+
+    tabOffset = Math.max(0, Math.min(tabOffset + dir, totalTabs - VISIBLE));
+
+    track.style.transform = `translateX(-${tabOffset * TAB_WIDTH}px)`;
+
+    if (document.getElementById("tabPrev")) {
+    updateArrows();
+}
 }
  
 function switchTab(idx){
@@ -325,4 +350,46 @@ function clearPhoneError() {
         error.textContent = "";
         icon.style.display = "none";
     }
+}
+
+
+// ================= Counter =================
+
+const counters = document.querySelectorAll(".counter-number");
+
+if (counters.length) {
+
+    const counterObserver = new IntersectionObserver((entries, obs) => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            const counter = entry.target;
+            const target = parseInt(counter.dataset.target, 10);
+
+            let count = 1;
+            counter.textContent = count;
+
+            const speed = target > 100 ? 2 : 80;
+
+            const interval = setInterval(() => {
+                count++;
+                counter.textContent = count;
+
+                if (count >= target) {
+                    counter.textContent = target;
+                    clearInterval(interval);
+                }
+            }, speed);
+
+            obs.unobserve(counter);
+
+        });
+
+    }, {
+        threshold: 0.5
+    });
+
+    counters.forEach(counter => counterObserver.observe(counter));
 }
